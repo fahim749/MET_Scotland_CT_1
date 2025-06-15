@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematics Educators Training | Critical Thinking Framework</title>
+    <title>Mathematics Educators Training | Resource Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         :root {
             --primary-blue: #1a2a6c;
             --secondary-blue: #0065bd;
@@ -15,14 +22,7 @@
             --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue), var(--primary-blue));
             color: var(--white);
             line-height: 1.6;
@@ -115,165 +115,8 @@
             font-weight: 300;
         }
 
-        /* Navigation */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            margin: 40px 0 30px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .nav-tab {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: var(--light-blue);
-        }
-
-        .nav-tab.active, .nav-tab:hover {
-            background: rgba(255, 215, 0, 0.2);
-            color: var(--accent-gold);
-            border-color: var(--accent-gold);
-        }
-
-        /* Main Content */
-        .content-section {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: var(--accent-gold);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title i {
-            font-size: 2.5rem;
-        }
-
-        /* CTF Components */
-        .ctf-components {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .ctf-card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            padding: 30px;
-            border-left: 5px solid var(--accent-gold);
-            transition: transform 0.3s ease;
-        }
-
-        .ctf-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .ctf-icon {
-            font-size: 3rem;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-        }
-
-        .ctf-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-
-        .ctf-description {
-            color: var(--light-blue);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* MET Program Section */
-        .program-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .highlight-card {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .highlight-icon {
-            font-size: 3.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 20px;
-        }
-
-        .highlight-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-
-        .highlight-description {
-            color: var(--light-blue);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* Password Section */
-        .password-section {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        .enter-button {
-            background: linear-gradient(45deg, var(--accent-gold), #ffb400);
-            color: var(--primary-blue);
-            border: none;
-            padding: 18px 50px;
-            font-size: 1.6rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            letter-spacing: 1px;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 30px;
-            z-index: 10;
-        }
-
-        .enter-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-        }
-
         /* Resource Page */
         #resourcePage {
-            display: none;
             min-height: 100vh;
         }
 
@@ -334,20 +177,19 @@
             margin: 20px auto;
         }
 
-        /* Resource Tabs */
-        .resource-tabs {
+        /* Resource Navigation */
+        .resource-nav {
             display: flex;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 15px;
             margin: 30px auto;
             max-width: 1000px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
             overflow: hidden;
         }
 
         .resource-tab {
-            flex: 1;
-            padding: 20px;
+            padding: 20px 30px;
             text-align: center;
             font-weight: 600;
             font-size: 1.2rem;
@@ -355,6 +197,7 @@
             transition: all 0.3s ease;
             color: var(--light-blue);
             border-bottom: 3px solid transparent;
+            flex: 1;
         }
 
         .resource-tab.active {
@@ -367,14 +210,18 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
+        .resource-tab i {
+            margin-right: 10px;
+        }
+
         /* Resource Content */
         .resource-content {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         .resource-content.active {
             display: block;
-            animation: fadeIn 0.5s ease;
         }
 
         .iframe-container {
@@ -410,122 +257,10 @@
             font-size: 1.1rem;
         }
 
-        /* Password Modal */
-        .password-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 100;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-        }
-
-        .password-modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        .password-box {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 20px;
-            padding: 40px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            transform: scale(0.8);
-            transition: transform 0.4s ease;
-        }
-
-        .password-modal.active .password-box {
-            transform: scale(1);
-        }
-
-        .password-title {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--accent-gold);
-        }
-
-        .input-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--accent-gold);
-            font-size: 1.1rem;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .input-group input:focus {
-            border-color: var(--accent-gold);
-            background: rgba(0, 0, 0, 0.4);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, var(--accent-gold), #ffb400);
-            color: var(--primary-blue);
-            border: none;
-            padding: 16px 40px;
-            font-size: 1.2rem;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .message {
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 500;
-            display: none;
-        }
-
-        .error {
-            background: rgba(178, 31, 31, 0.7);
-            display: block;
-        }
-
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animated-section {
-            animation: fadeIn 0.8s ease-out forwards;
         }
 
         @keyframes float {
@@ -536,26 +271,6 @@
 
         .floating {
             animation: float 4s ease-in-out infinite;
-        }
-
-        /* Certification Section */
-        .certification-list {
-            margin: 20px 0 20px 40px;
-            color: var(--light-blue);
-        }
-
-        .certification-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .certification-icon {
-            color: var(--accent-gold);
-            font-size: 1.5rem;
-            margin-top: 3px;
-            flex-shrink: 0;
         }
 
         /* Responsive Design */
@@ -572,299 +287,23 @@
                 font-size: 1.2rem;
             }
             
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .content-section {
-                padding: 30px 20px;
-            }
-            
-            .enter-button {
-                padding: 15px 40px;
-                font-size: 1.4rem;
+            .resource-nav {
+                flex-direction: column;
             }
             
             .iframe-container {
                 height: 50vh;
             }
             
-            .resource-tabs {
-                flex-direction: column;
+            .resource-tab {
+                padding: 15px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="scottish-pattern"></div>
-    
-    <!-- Landing Page -->
-    <div id="landingPage">
-        <div class="container">
-            <header>
-                <div class="logo-container">
-                    <div class="met-logo floating">
-                        <div class="saltire"></div>
-                        <div class="met-text">MET</div>
-                    </div>
-                </div>
-                <h1 class="page-title">Mathematics Educators Training</h1>
-                <p class="subtitle">Scotland's Premier Program for Excellence in Mathematics Education</p>
-            </header>
-            
-            <div class="nav-tabs">
-                <div class="nav-tab active" data-target="rationale">CT Framework</div>
-                <div class="nav-tab" data-target="met-program">MET Program</div>
-                <div class="nav-tab" data-target="resources">Educator Resources</div>
-            </div>
-            
-            <!-- CT Framework Section -->
-            <div id="rationale" class="content-section animated-section">
-                <div class="section-title">
-                    <i class="fas fa-brain"></i> The Critical Thinking Framework
-                </div>
-                
-                <p>Developed by Dr. Fahim Ahmed at the University of Strathclyde, the Critical Thinking Framework (CTF) revolutionizes mathematics education by focusing on practical classroom implementation rather than theoretical taxonomies.</p>
-                
-                <p>Through years of research and student feedback, CTF identifies four key components that enhance student engagement and learning outcomes:</p>
-                
-                <div class="ctf-components">
-                    <div class="ctf-card">
-                        <div class="ctf-icon">
-                            <i class="fas fa-question-circle"></i>
-                        </div>
-                        <h3 class="ctf-title">Strategic Questions</h3>
-                        <p class="ctf-description">Thought-provoking questions placed at key lecture stages to stimulate critical thinking and connect concepts to prior knowledge.</p>
-                    </div>
-                    
-                    <div class="ctf-card">
-                        <div class="ctf-icon">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3 class="ctf-title">Open Case Discussion</h3>
-                        <p class="ctf-description">Real-world examples linked to student experiences, encouraging collaborative problem-solving and practical application.</p>
-                    </div>
-                    
-                    <div class="ctf-card">
-                        <div class="ctf-icon">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
-                        <h3 class="ctf-title">Collaborative Feedback</h3>
-                        <p class="ctf-description">Live assessment reviews where students connect coursework to topics, identifying strengths and areas for improvement.</p>
-                    </div>
-                    
-                    <div class="ctf-card">
-                        <div class="ctf-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <h3 class="ctf-title">Active Learning</h3>
-                        <p class="ctf-description">Sensory simulations and emotional intelligence monitoring to maintain attention and create an engaging environment.</p>
-                    </div>
-                </div>
-                
-                <div class="section-title" style="margin-top: 50px;">
-                    <i class="fas fa-lightbulb"></i> Why CTF Matters
-                </div>
-                
-                <p>The CTF addresses a critical gap in mathematics education - the disconnect between theoretical frameworks and practical classroom implementation. Traditional approaches often overwhelm educators with complex pedagogical models, while CTF offers:</p>
-                
-                <ul style="margin: 20px 0 20px 40px; color: var(--light-blue);">
-                    <li style="margin-bottom: 15px;">A practical toolkit that integrates seamlessly into existing curricula</li>
-                    <li style="margin-bottom: 15px;">Evidence-based strategies that improve student engagement and outcomes</li>
-                    <li style="margin-bottom: 15px;">Flexible components that adapt to diverse learning environments</li>
-                    <li style="margin-bottom: 15px;">A focus on creating inclusive classrooms where all students participate</li>
-                </ul>
-                
-                <p>Research shows that CTF implementation leads to a 53% increase in student engagement and a 61% improvement in concept understanding based on student surveys.</p>
-            </div>
-            
-            <!-- MET Program Section -->
-            <div id="met-program" class="content-section" style="display: none;">
-                <div class="section-title">
-                    <i class="fas fa-chalkboard-teacher"></i> Mathematics Educators Training
-                </div>
-                
-                <p>The Mathematics Educators Training (MET) program translates the Critical Thinking Framework into practical strategies for Scottish mathematics teachers. Designed specifically for higher primary (P5-P7) and secondary educators, MET combines CTF principles with Scotland's Curriculum for Excellence.</p>
-                
-                <div class="program-highlights">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 class="highlight-title">Interactive Sessions</h3>
-                        <p class="highlight-description">2-hour weekly face-to-face workshops complemented by preparation and reflection activities</p>
-                    </div>
-                    
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h3 class="highlight-title">Technology Integration</h3>
-                        <p class="highlight-description">Mentimeter, Wacom tablets, and digital tools to enhance engagement</p>
-                    </div>
-                    
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3 class="highlight-title">Case-Based Learning</h3>
-                        <p class="highlight-description">Real classroom scenarios from Scottish schools with practical solutions</p>
-                    </div>
-                </div>
-                
-                <div class="section-title" style="margin-top: 50px;">
-                    <i class="fas fa-graduation-cap"></i> Program Structure
-                </div>
-                
-                <div style="background: rgba(0, 0, 0, 0.2); padding: 25px; border-radius: 15px; margin-top: 20px;">
-                    <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 1; min-width: 250px;">
-                            <h3 style="color: var(--accent-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-laptop"></i> Pre-Session (2 Hours)
-                            </h3>
-                            <ul style="margin-left: 30px; color: var(--light-blue);">
-                                <li>Implement CTF strategy</li>
-                                <li>Collect student feedback</li>
-                                <li>Prepare demonstration materials</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="flex: 1; min-width: 250px;">
-                            <h3 style="color: var(--accent-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-users"></i> Face-to-Face (2 Hours)
-                            </h3>
-                            <ul style="margin-left: 30px; color: var(--light-blue);">
-                                <li>Share challenges & solutions</li>
-                                <li>Teacher demonstrations</li>
-                                <li>Vote & refine best strategies</li>
-                            </ul>
-                        </div>
-                        
-                        <div style="flex: 1; min-width: 250px;">
-                            <h3 style="color: var(--accent-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-book"></i> Post-Session (2 Hours)
-                            </h3>
-                            <ul style="margin-left: 30px; color: var(--light-blue);">
-                                <li>Reflect on implementation</li>
-                                <li>Apply "best strategy"</li>
-                                <li>Design next case study</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section-title" style="margin-top: 50px;">
-                    <i class="fas fa-certificate"></i> Certification & Recognition
-                </div>
-                
-                <div class="certification-list">
-                    <div class="certification-item">
-                        <div class="certification-icon">
-                            <i class="fas fa-toolbox"></i>
-                        </div>
-                        <div>
-                            <strong>Complete working toolkit</strong> to implement CTF framework in the classroom
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="certification-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <div>
-                            <strong>Membership in the MET educator network</strong> for collaboration and support
-                        </div>
-                    </div>
-                    
-                    <div class="certification-item">
-                        <div class="certification-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div>
-                            <strong>Continuous improvement opportunities</strong> by engaging in MET blogs and activities
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Resources Section -->
-            <div id="resources" class="content-section" style="display: none;">
-                <div class="section-title">
-                    <i class="fas fa-lock"></i> Educator Resource Portal
-                </div>
-                
-                <p>The MET Resource Portal provides exclusive access to materials developed using the Critical Thinking Framework. These resources are designed to help you implement CTF strategies in your mathematics classroom.</p>
-                
-                <div style="text-align: center; padding: 40px 20px; border-radius: 20px; background: rgba(0, 0, 0, 0.3); margin: 40px 0;">
-                    <i class="fas fa-key" style="font-size: 4rem; color: var(--accent-gold); margin-bottom: 20px;"></i>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--white);">Access Restricted to Educators</h3>
-                    <p style="max-width: 600px; margin: 0 auto 30px; color: var(--light-blue);">
-                        Please enter the secure password provided by your MET program coordinator to access the resource portal.
-                    </p>
-                    
-                    <button class="enter-button" id="accessResources">
-                        <i class="fas fa-unlock-alt"></i> Access Educator Resources
-                    </button>
-                </div>
-                
-                <div class="section-title" style="margin-top: 50px;">
-                    <i class="fas fa-toolbox"></i> Available Resources
-                </div>
-                
-                <div class="program-highlights">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-video"></i>
-                        </div>
-                        <h3 class="highlight-title">Video Tutorials</h3>
-                        <p class="highlight-description">CTF implementation examples from real classrooms</p>
-                    </div>
-                    
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <h3 class="highlight-title">Lesson Plans</h3>
-                        <p class="highlight-description">Ready-to-use CTF mathematics activities</p>
-                    </div>
-                    
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3 class="highlight-title">AI Assessment Tool</h3>
-                        <p class="highlight-description">Convert handwritten work to digital formats</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Password Modal -->
-            <div id="passwordModal" class="password-modal">
-                <div class="password-box">
-                    <h2 class="password-title">
-                        <i class="fas fa-lock"></i> Secure Access
-                    </h2>
-                    <div class="input-group">
-                        <label for="password">
-                            <i class="fas fa-key"></i> Enter Access Password
-                        </label>
-                        <input type="password" id="password" placeholder="Enter your password">
-                    </div>
-                    <button id="submitPassword" class="submit-btn">Access Training Portal</button>
-                    <div id="message" class="message error">
-                        <i class="fas fa-exclamation-circle"></i> Incorrect password. Please try again.
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <footer>
-            <div class="container">
-                <p class="copyright">© 2025 Mathematics Educators Training | Dr Fahim Ahmed</p>
-                <p>Educationist | Learner</p>
-            </div>
-        </footer>
-    </div>
     
     <!-- Resource Page -->
     <div id="resourcePage">
@@ -879,42 +318,51 @@
         
         <div class="container resource-container">
             <div class="resource-info">
-                <p>Explore our collection of teaching resources. All materials are embedded within the MET portal for seamless access.</p>
-                <p>Browse through different resource categories using the tabs below.</p>
+                <p>Explore our collection of teaching resources organized by category. All materials are embedded within the MET portal for seamless access.</p>
             </div>
             
-            <div class="resource-tabs">
-                <div class="resource-tab active" data-resource="all">All Resources</div>
-                <div class="resource-tab" data-resource="videos">Video Tutorials</div>
-                <div class="resource-tab" data-resource="pdfs">Lesson Plans</div>
-                <div class="resource-tab" data-resource="ai">AI Tools</div>
-            </div>
-            
-            <div class="resource-content active" id="all">
-                <div class="iframe-container">
-                    <iframe src="https://drive.google.com/embeddedfolderview?id=1sGFuroZrZRFILbVQjA-SOHNvgxvzKwi-#grid" 
-                            title="All Mathematics Resources"></iframe>
+            <div class="resource-nav">
+                <div class="resource-tab active" data-resource="videos">
+                    <i class="fas fa-video"></i> Videos
+                </div>
+                <div class="resource-tab" data-resource="pdfs">
+                    <i class="fas fa-file-pdf"></i> PDFs
+                </div>
+                <div class="resource-tab" data-resource="docs">
+                    <i class="fas fa-file-alt"></i> Documents
                 </div>
             </div>
             
-            <div class="resource-content" id="videos">
+            <div class="resource-content active" id="videos">
                 <div class="iframe-container">
                     <iframe src="https://drive.google.com/embeddedfolderview?id=1zxZcjLBR06nlzrBpBshEGGFGKC6CSgCg#grid" 
                             title="Mathematics Video Tutorials"></iframe>
+                </div>
+                <div class="resource-info">
+                    <h3><i class="fas fa-video"></i> Video Tutorials</h3>
+                    <p>Instructional videos demonstrating CTF implementation in mathematics classrooms</p>
                 </div>
             </div>
             
             <div class="resource-content" id="pdfs">
                 <div class="iframe-container">
                     <iframe src="https://drive.google.com/embeddedfolderview?id=1Uv5fd6NJC7Qn_R7mN4ynXO6yeqIAxWSK#grid" 
-                            title="Mathematics Lesson Plans"></iframe>
+                            title="Mathematics PDF Resources"></iframe>
+                </div>
+                <div class="resource-info">
+                    <h3><i class="fas fa-file-pdf"></i> PDF Resources</h3>
+                    <p>Printable lesson plans, worksheets, and assessment guides</p>
                 </div>
             </div>
             
-            <div class="resource-content" id="ai">
+            <div class="resource-content" id="docs">
                 <div class="iframe-container">
                     <iframe src="https://drive.google.com/embeddedfolderview?id=1rlUeDBG8TCH2H-6I2ScqMdHX3Dh1eHRN#grid" 
-                            title="AI Assessment Tools"></iframe>
+                            title="Mathematics Documents"></iframe>
+                </div>
+                <div class="resource-info">
+                    <h3><i class="fas fa-file-alt"></i> Document Resources</h3>
+                    <p>Editable templates, research papers, and implementation guides</p>
                 </div>
             </div>
             
@@ -933,97 +381,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab navigation
-            const tabs = document.querySelectorAll('.nav-tab');
-            const sections = document.querySelectorAll('.content-section');
-            
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const target = this.getAttribute('data-target');
-                    
-                    // Update active tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Show target section
-                    sections.forEach(section => {
-                        section.style.display = 'none';
-                        if (section.id === target) {
-                            section.style.display = 'block';
-                            section.classList.add('animated-section');
-                        }
-                    });
-                });
-            });
-            
-            // Password modal functionality
-            const accessBtn = document.getElementById('accessResources');
-            const passwordModal = document.getElementById('passwordModal');
-            const submitBtn = document.getElementById('submitPassword');
-            const passwordInput = document.getElementById('password');
-            const message = document.getElementById('message');
-            const landingPage = document.getElementById('landingPage');
-            const resourcePage = document.getElementById('resourcePage');
-            const backButton = document.getElementById('backButton');
-            
-            // Correct password
-            const correctPassword = "MET25";
-            
-            // Show password modal
-            accessBtn.addEventListener('click', function() {
-                passwordModal.classList.add('active');
-                passwordInput.value = '';
-                message.style.display = 'none';
-                passwordInput.focus();
-            });
-            
-            // Close modal when clicking outside
-            passwordModal.addEventListener('click', function(e) {
-                if (e.target === passwordModal) {
-                    passwordModal.classList.remove('active');
-                    message.style.display = 'none';
-                    passwordInput.value = '';
-                }
-            });
-            
-            // Submit password
-            submitBtn.addEventListener('click', function() {
-                if (passwordInput.value === correctPassword) {
-                    // Hide landing page and show resource page
-                    landingPage.style.display = 'none';
-                    resourcePage.style.display = 'block';
-                    passwordModal.classList.remove('active');
-                    message.style.display = 'none';
-                    
-                    // Scroll to top
-                    window.scrollTo(0, 0);
-                } else {
-                    message.style.display = 'block';
-                    passwordInput.value = '';
-                    passwordInput.focus();
-                    
-                    // Add shake animation
-                    message.style.animation = 'none';
-                    setTimeout(() => {
-                        message.style.animation = 'shake 0.5s';
-                    }, 10);
-                }
-            });
-            
-            // Allow Enter key to submit password
-            passwordInput.addEventListener('keyup', function(event) {
-                if (event.key === 'Enter') {
-                    submitBtn.click();
-                }
-            });
-            
-            // Back button functionality
-            backButton.addEventListener('click', function() {
-                resourcePage.style.display = 'none';
-                landingPage.style.display = 'block';
-                window.scrollTo(0, 0);
-            });
-            
             // Resource tabs functionality
             const resourceTabs = document.querySelectorAll('.resource-tab');
             const resourceContents = document.querySelectorAll('.resource-content');
@@ -1046,21 +403,13 @@
                 });
             });
             
-            // Add shake animation for error message
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes shake {
-                    0%, 100% {transform: translateX(0);}
-                    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
-                    20%, 40%, 60%, 80% {transform: translateX(10px);}
-                }
-                
-                #message {
-                    animation-duration: 0.5s;
-                    display: none;
-                }
-            `;
-            document.head.appendChild(style);
+            // Back button functionality
+            const backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                alert("Back to main portal would be implemented here");
+                // In a complete implementation: 
+                // window.location.href = "index.html";
+            });
         });
     </script>
 </body>
