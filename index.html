@@ -326,6 +326,57 @@
             padding: 30px 0;
         }
 
+        .resource-info {
+            text-align: center;
+            padding: 20px;
+            color: var(--light-blue);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        /* Resource Tabs */
+        .resource-tabs {
+            display: flex;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 1000px;
+            overflow: hidden;
+        }
+
+        .resource-tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--light-blue);
+            border-bottom: 3px solid transparent;
+        }
+
+        .resource-tab.active {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--accent-gold);
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .resource-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Resource Content */
+        .resource-content {
+            display: none;
+        }
+
+        .resource-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
         .iframe-container {
             position: relative;
             width: 100%;
@@ -334,20 +385,14 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto;
+            max-width: 1000px;
         }
 
         .iframe-container iframe {
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        .resource-info {
-            text-align: center;
-            padding: 20px;
-            color: var(--light-blue);
-            max-width: 800px;
-            margin: 20px auto;
         }
 
         /* Footer */
@@ -542,6 +587,10 @@
             
             .iframe-container {
                 height: 50vh;
+            }
+            
+            .resource-tabs {
+                flex-direction: column;
             }
         }
     </style>
@@ -830,17 +879,47 @@
         
         <div class="container resource-container">
             <div class="resource-info">
-                <p>Explore our collection of teaching resources, including lesson plans, video tutorials, and assessment tools. All materials are designed to help you implement the Critical Thinking Framework in your mathematics classroom.</p>
-                <p>Use the navigation controls within the resource viewer to explore folders and open files.</p>
+                <p>Explore our collection of teaching resources. All materials are embedded within the MET portal for seamless access.</p>
+                <p>Browse through different resource categories using the tabs below.</p>
             </div>
             
-            <div class="iframe-container">
-                <iframe src="https://drive.google.com/embeddedfolderview?id=1sGFuroZrZRFILbVQjA-SOHNvgxvzKwi-#grid" 
-                        title="Mathematics Resources"></iframe>
+            <div class="resource-tabs">
+                <div class="resource-tab active" data-resource="all">All Resources</div>
+                <div class="resource-tab" data-resource="videos">Video Tutorials</div>
+                <div class="resource-tab" data-resource="pdfs">Lesson Plans</div>
+                <div class="resource-tab" data-resource="ai">AI Tools</div>
+            </div>
+            
+            <div class="resource-content active" id="all">
+                <div class="iframe-container">
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=1sGFuroZrZRFILbVQjA-SOHNvgxvzKwi-#grid" 
+                            title="All Mathematics Resources"></iframe>
+                </div>
+            </div>
+            
+            <div class="resource-content" id="videos">
+                <div class="iframe-container">
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=1zxZcjLBR06nlzrBpBshEGGFGKC6CSgCg#grid" 
+                            title="Mathematics Video Tutorials"></iframe>
+                </div>
+            </div>
+            
+            <div class="resource-content" id="pdfs">
+                <div class="iframe-container">
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=1Uv5fd6NJC7Qn_R7mN4ynXO6yeqIAxWSK#grid" 
+                            title="Mathematics Lesson Plans"></iframe>
+                </div>
+            </div>
+            
+            <div class="resource-content" id="ai">
+                <div class="iframe-container">
+                    <iframe src="https://drive.google.com/embeddedfolderview?id=1rlUeDBG8TCH2H-6I2ScqMdHX3Dh1eHRN#grid" 
+                            title="AI Assessment Tools"></iframe>
+                </div>
             </div>
             
             <div class="resource-info">
-                <p><i class="fas fa-info-circle"></i> You can view and download all resources. To play videos, click on the video file and select "Open with Google Drive viewer".</p>
+                <p><i class="fas fa-info-circle"></i> You can navigate through folders and preview files without leaving the MET portal.</p>
             </div>
         </div>
         
@@ -943,6 +1022,28 @@
                 resourcePage.style.display = 'none';
                 landingPage.style.display = 'block';
                 window.scrollTo(0, 0);
+            });
+            
+            // Resource tabs functionality
+            const resourceTabs = document.querySelectorAll('.resource-tab');
+            const resourceContents = document.querySelectorAll('.resource-content');
+            
+            resourceTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const resourceType = this.getAttribute('data-resource');
+                    
+                    // Update active tab
+                    resourceTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target content
+                    resourceContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === resourceType) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
             });
             
             // Add shake animation for error message
