@@ -13,8 +13,6 @@
             --light-blue: #e0f0ff;
             --dark-blue: #0d1a4a;
             --white: #ffffff;
-            --light-gray: #f8f9fa;
-            --dark-gray: #343a40;
         }
 
         * {
@@ -28,7 +26,6 @@
             background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue), var(--primary-blue));
             color: var(--white);
             line-height: 1.6;
-            position: relative;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -496,6 +493,26 @@
             animation: float 4s ease-in-out infinite;
         }
 
+        /* Certification Section */
+        .certification-list {
+            margin: 20px 0 20px 40px;
+            color: var(--light-blue);
+        }
+
+        .certification-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .certification-icon {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .page-title {
@@ -691,14 +708,34 @@
                     <i class="fas fa-certificate"></i> Certification & Recognition
                 </div>
                 
-                <p>Upon successful completion, participants receive:</p>
-                
-                <ul style="margin: 20px 0 20px 40px; color: var(--light-blue);">
-                    <li style="margin-bottom: 15px;">Scottish Government-recognized certification</li>
-                    <li style="margin-bottom: 15px;">Professional development credits</li>
-                    <li style="margin-bottom: 15px;">Membership in the MET educator network</li>
-                    <li style="margin-bottom: 15px;">Digital badge for professional profiles</li>
-                </ul>
+                <div class="certification-list">
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-toolbox"></i>
+                        </div>
+                        <div>
+                            <strong>Complete working toolkit</strong> to implement CTF framework in the classroom
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <strong>Membership in the MET educator network</strong> for collaboration and support
+                        </div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="certification-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <strong>Continuous improvement opportunities</strong> by engaging in MET blogs and activities
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Resources Section -->
