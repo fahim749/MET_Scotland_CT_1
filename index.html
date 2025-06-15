@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Educators Training (MET) Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-attachment: fixed;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px solid white;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            background: #c0392b;
+        }
+        
+        .program-overview {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .section-title {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--accent);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-body ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .card-body li {
+            margin-bottom: 10px;
+        }
+        
+        .features {
+            background: var(--light);
+            padding: 40px 0;
+        }
+        
+        .feature-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-box h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 55%;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -55px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -55px;
+        }
+        
+        .week-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .week-table th {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .week-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .week-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .week-table tr:hover {
+            background: #e3f2fd;
+        }
+        
+        .tech-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .tech-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -55px !important;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-chalkboard-teacher logo-icon"></i>
+                <div>
+                    <h1>Mathematics Educators Training (MET)</h1>
+                    <div class="subtitle">Enhancing Critical Thinking in Scottish Mathematics Education</div>
+                    <a href="#register" class="cta-button">Register Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="program-overview">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Program Overview</h2>
+            <p>The Mathematics Educators Training (MET) program is designed to transform mathematics teaching in Scottish higher primary (P5-P7) and secondary schools. Based on Fahim Ahmed's Critical Thinking Framework (CTF), this 8-week intensive program empowers teachers with student-centric strategies, innovative technology, and collaborative approaches.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-alt"></i> Duration & Format
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><strong>8 weeks</strong> of intensive training</li>
+                            <li><strong>2-hour</strong> weekly face-to-face sessions</li>
+                            <li><strong>2 hours</strong> pre-session preparation</li>
+                            <li><strong>2 hours</strong> post-session reflection</li>
+                            <li>Access to exclusive <strong>MET digital platform</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-bullseye"></i> Core Objectives
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Implement Critical Thinking Framework in math education</li>
+                            <li>Develop student-centric teaching approaches</li>
+                            <li>Integrate technology for enhanced engagement</li>
+                            <li>Create inclusive learning environments</li>
+                            <li>Build collaborative teacher communities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-graduation-cap"></i> Certification
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Scottish Government-recognized certification</li>
+            <li>Professional development credits</li>
+            <li>Ongoing access to MET resources</li>
+            <li>Membership in the MET educator network</li>
+            <li>Digital badge for professional profiles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-star"></i> Key Program Features</h2>
+                <div class="feature-container">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Highly Interactive</h3>
+                        <p>Live demonstrations, peer teaching, and collaborative problem-solving sessions with immediate feedback.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Technology-Rich</h3>
+                        <p>Integration of Mentimeter, Wacom tablets, digital rubrics, and real-time polling systems.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Case-Based Learning</h3>
+                        <p>Real classroom scenarios from Scottish schools with practical solution development.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Inclusive Design</h3>
+                        <p>Strategies for diverse learners including EAL, SEN, and varied ability groups.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Data-Driven</h3>
+                        <p>Use of student feedback and performance metrics to refine teaching approaches.</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Community Building</h3>
+                        <p>Ongoing support through the MET digital platform and regional educator networks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="program-overview">
+            <h2 class="section-title"><i class="fas fa-clock"></i> Weekly Session Structure</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-laptop"></i> Pre-Session (2 Hours)</h3>
+                        <ul>
+                            <li>Implement CTF strategy in classroom</li>
+                            <li>Collect student feedback via Mentimeter</li>
+                            <li>Analyze student challenges and responses</li>
+                            <li>Prepare demonstration materials</li>
+                            <li>Upload materials to MET platform</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-users"></i> Face-to-Face Session (2 Hours)</h3>
+                        <ul>
+                            <li>Review student poll results (10 min)</li>
+                            <li>Share challenges & attempted solutions (20 min)</li>
+                            <li>Teacher demonstrations (40 min)</li>
+                            <li>Vote & refine best strategies (20 min)</li>
+                            <li>Focus on student voice & engagement (20 min)</li>
+                            <li>Assign next week's pre-work (10 min)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3><i class="fas fa-book"></i> Post-Session (2 Hours)</h3>
+                        <ul>
+                            <li>Reflect on implementation in journal</li>
+                            <li>Apply voted "best strategy" in classroom</li>
+                            <li>Design next week's case study</li>
+                            <li>Share outcomes on MET platform</li>
+                            <li>Engage in peer feedback discussions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="program-overview">
+            <h2 class="section-title"><i class="fas fa-calendar-week"></i> Program Content by Week</h2>
+            
+            <table class="week-table">
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Math Focus</th>
+                        <th>CTF Component</th>
+                        <th>Key Activities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Fractions</td>
+                        <td>Critical Questions</td>
+                        <td>"Why does 1/2 + 1/4 ≠ 2/6?" Poll + visual proofs</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Algebra</td>
+                        <td>Open Case Discussion</td>
+                        <td>Real-life linear equations (budgeting scenarios)</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Geometry</td>
+                        <td>Collaborative Review</td>
+                        <td>Peer-review of angle theorems proofs</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Data Literacy</td>
+                        <td>Active Learning</td>
+                        <td>Emotion polls during complex graphs analysis</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Problem-Solving</td>
+                        <td>Integrated Approach</td>
+                        <td>Design CTF mini-lesson for word problems</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Calculus</td>
+                        <td>Emotional Intelligence</td>
+                        <td>"How confident do you feel?" polls before tasks</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Numeracy</td>
+                        <td>Inclusive Questions</td>
+                        <td>Differentiated tasks for EAL/SEN learners</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Assessment</td>
+                        <td>Peer Feedback</td>
+                        <td>Co-create CTF-aligned math rubric</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="tech-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-microchip"></i> Technology Integration</h2>
+                <p>The MET program integrates cutting-edge technology to enhance teaching effectiveness and student engagement.</p>
+                
+                <div class="tech-icons">
+                    <div class="tech-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-vote-yea"></i>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-tablet-alt"></i>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-poll"></i>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                </div>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-tools"></i> Primary Tools
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Mentimeter:</strong> Real-time polling and Q&A</li>
+                                <li><strong>Wacom Tablets:</strong> Digital modeling and annotation</li>
+                                <li><strong>Microsoft Teams:</strong> Collaboration and resource sharing</li>
+                                <li><strong>MET Platform:</strong> Central hub for resources and community</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-rocket"></i> Advanced Features
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Automated feedback systems</li>
+                                <li>Digital rubric designers</li>
+                                <li>Student engagement analytics</li>
+                                <li>Lesson plan generators</li>
+                                <li>Resource sharing marketplace</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="register" class="program-overview" style="text-align: center; padding: 50px 20px;">
+            <h2 class="section-title"><i class="fas fa-edit"></i> Register for the MET Program</h2>
+            <p style="max-width: 700px; margin: 0 auto 30px;">Join the next cohort of mathematics educators transforming Scottish classrooms. Limited spaces available.</p>
+            <a href="#" class="cta-button">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <div style="margin-top: 30px; font-size: 0.9rem;">
+                <p><i class="fas fa-info-circle"></i> Program starts: September 15, 2023</p>
+                <p><i class="fas fa-map-marker-alt"></i> Locations: Glasgow, Edinburgh, Aberdeen & Online</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About MET</h3>
+                    <p>The Mathematics Educators Training program is developed in partnership with Scottish universities and the Department of Education to enhance critical thinking in mathematics education.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@met-program.scot</p>
+                    <p><i class="fas fa-phone"></i> +44 (0)141 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Education House, Glasgow G1 1AB</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#" style="color: #fff;">Program Brochure</a></p>
+                    <p><a href="#" style="color: #fff;">Research Basis</a></p>
+                    <p><a href="#" style="color: #fff;">Educator Testimonials</a></p>
+                    <p><a href="#" style="color: #fff;">FAQ</a></p>
+                </div>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                &copy; 2023 Mathematics Educators Training Program. Based on Fahim Ahmed's Critical Thinking Framework.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
